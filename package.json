@@ -1,0 +1,33 @@
+{
+  "name": "fruit",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "thjxs <tanhongjianx@163.com>",
+  "scripts": {
+    "clean": "rimraf dist/",
+    "build": "npm run clean && webpack",
+    "wstart": "webpack-dev-server",
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^2.1.0",
+    "choo": "^7.1.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.4.2",
+    "cssnano": "^4.1.10",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "postcss-loader": "^3.0.0",
+    "prettier": "^1.19.1",
+    "rimraf": "^3.0.2",
+    "tailwindcss": "^1.2.0",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^8.0.3",
+    "request": "^2.88.2"
+  }
+}
