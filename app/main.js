@@ -14,6 +14,12 @@ app.use((state, emitter) => {
   ipcRenderer.on('cached', (e, msg) => {
     state.fruitData[state.current].imgUrl = msg.hash
     state.loading = false
+    setTimeout(() => {
+      let el = document.getElementsByClassName('fruit-img')
+      for (const i of el) {
+        i.classList.add('opacity-100')
+      }
+    }, 100);
     emitter.emit('render')
   })
   emitter.on('loadImg', (current) => {
