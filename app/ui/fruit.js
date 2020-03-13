@@ -14,7 +14,7 @@ export default function fruit(state, loading) {
   }
   return html`
     <div class="mx-auto">
-      <img class="fruit-img opacity-0" src="/images/${state.imgUrl}">
+      <img id="fruit-img" class="fruit-img opacity-0" src="/images/${state.hash}">
       <h2 class="text-white">Artist: ${state.artist}</h2>
       <p class="text-white">year: ${state.year}</p>
       <p class="text-white">Scientific name: ${state.scientific_name}</p>

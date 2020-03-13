@@ -4,9 +4,22 @@ const storage = require('./lib/storage')
 
 const imageStorage = new storage(path.join(__dirname, 'images'))
 
-ipcMain.on('loadImage', async (e, origin) => {
-  let msg = await imageStorage.cacheFile(origin)
+ipcMain.on('loadImage', async (e, current) => {
+  let msg = await imageStorage.cacheFile(current)
   e.reply('cached', msg)
+})
+
+ipcMain.on('max', () => {
+  win.maximize()
+})
+ipcMain.on('unmax', () => {
+  win.unmaximize()
+})
+ipcMain.on('min', () => {
+  win.minimize()
+})
+ipcMain.on('close', () => {
+  win.close()
 })
 let win;
 

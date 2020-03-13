@@ -13,12 +13,12 @@ export default function mainView(state, emit) {
   }
 
   return html`
-    <div class="flex flex-1">
-    ${Furit(state.fruitData[state.current], state.loading)}
+    <div class="flex flex-1 items-center">
+    ${Furit(state.fruitData, state.loading)}
     </div>
     <div class="flex justify-center">
-      <button class="bg-gray-300 hover:bg-gray-400 m-2 p-2 rounded" onclick="${prev}">prev</button>
-      <button class="bg-gray-300 hover:bg-gray-400 m-2 p-2 rounded" onclick="${next}">next</button>
+      <button class="bg-gray-300 hover:bg-gray-400 m-2 px-2 rounded" onclick="${prev}">prev</button>
+      <button class="bg-gray-300 hover:bg-gray-400 m-2 px-2 rounded" onclick="${next}">next</button>
     </div>
   `;
 }

@@ -1,7 +1,18 @@
 @tailwind base;
+button:focus {
+  outline: none;
+}
 @tailwind components;
 @tailwind utilities;
-
+.main-header {
+  padding: 3px;
+  background-color: rgb(68, 58, 58);
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+}
+.tool-bar {
+  -webkit-app-region: no-drag;
+}
 .fruit-img {
   min-height: 400px;
   width: 268px;
