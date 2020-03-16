@@ -1,55 +1,55 @@
-import {ipcRenderer} from 'electron'
+import { ipcRenderer } from 'electron';
 
 function loadImg(current) {
-  ipcRenderer.send('loadImage', current)
+  ipcRenderer.send('loadImage', current);
 }
 function adjustWin(type) {
-  ipcRenderer.send(type)
+  ipcRenderer.send(type);
 }
-export default function (state, emitter) {
+export default function(state, emitter) {
   state.fruitData = {
     artist: null,
     common_name: null,
     scientific_name: null,
     year: null,
     imgUrl: null
-  }
-  state.current = 0
-  state.loading = true
+  };
+  state.current = 0;
+  state.loading = true;
   function render() {
-    emitter.emit('render')
+    emitter.emit('render');
   }
   ipcRenderer.on('cached', (e, msg) => {
-    state.fruitData = msg.fruitData
-    state.loading = false
+    state.fruitData = msg.fruitData;
+    state.loading = false;
     setTimeout(() => {
-      let el = document.getElementById('fruit-img')
-      el.classList.add('opacity-100')
+      let el = document.getElementById('fruit-img');
+      el.classList.add('opacity-100');
     }, 100);
-    render()
-  })
-  emitter.on('loadImg', (current) => {
-    state.current = current
-    state.loading = true
-    loadImg(current)
-    render()
-  })
+    render();
+  });
+  emitter.on('loadImg', current => {
+    state.current = current;
+    state.loading = true;
+    loadImg(current);
+    render();
+  });
   emitter.on('DOMContentLoaded', () => {
-    loadImg(state.current)
-  })
+    loadImg(state.current);
+  });
   emitter.on('max', () => {
     if (state.maxed) {
-      adjustWin('unmax')
-      state.maxed = false
+      adjustWin('unmax');
+      state.maxed = false;
     } else {
-      adjustWin('max')
-      state.maxed = true
+      adjustWin('max');
+      state.maxed = true;
     }
-  })
+  });
   emitter.on('min', () => {
-    adjustWin('min')
-  })
+    adjustWin('min');
+  });
   emitter.on('close', () => {
-    adjustWin('close')
-  })
+    adjustWin('close');
+  });
 }
