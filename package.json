@@ -9,6 +9,20 @@
     "wstart": "webpack-dev-server",
     "start": "electron ."
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "jshintConfig": {
+    "esversion": 9
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write --single-quote",
+      "jshint"
+    ]
+  },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^2.1.0",
     "choo": "^7.1.0",
@@ -17,6 +31,9 @@
     "css-loader": "^3.4.2",
     "cssnano": "^4.1.10",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^4.2.3",
+    "jshint": "^2.11.0",
+    "lint-staged": "^10.0.8",
     "mini-css-extract-plugin": "^0.9.0",
     "postcss-loader": "^3.0.0",
     "prettier": "^1.19.1",
@@ -29,6 +46,7 @@
   "license": "MIT",
   "dependencies": {
     "electron": "^8.1.1",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "uuid": "^7.0.2"
   }
 }
