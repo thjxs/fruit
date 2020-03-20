@@ -1,12 +1,6 @@
-import { ipcRenderer } from 'electron';
-
-function loadImg(current) {
-  ipcRenderer.send('loadImage', current);
-}
-function adjustWin(type) {
-  ipcRenderer.send(type);
-}
+import Rpc from './utils/rpc';
 export default function(state, emitter) {
+  const rpc = new Rpc(emitter);
   state.fruitData = {
     artist: null,
     common_name: null,
@@ -19,8 +13,8 @@ export default function(state, emitter) {
   function render() {
     emitter.emit('render');
   }
-  ipcRenderer.on('cached', (e, msg) => {
-    state.fruitData = msg.fruitData;
+  rpc.on('cached', data => {
+    state.fruitData = data.fruitData;
     state.loading = false;
     setTimeout(() => {
       let el = document.getElementById('fruit-img');
@@ -31,25 +25,28 @@ export default function(state, emitter) {
   emitter.on('loadImg', current => {
     state.current = current;
     state.loading = true;
-    loadImg(current);
+    rpc.emit('loadImg', current);
     render();
   });
+  emitter.on('ready', () => {
+    rpc.emit('loadImg', state.current);
+  });
   emitter.on('DOMContentLoaded', () => {
-    loadImg(state.current);
+    // rpc.emit('loadImg', state.current)
   });
   emitter.on('max', () => {
     if (state.maxed) {
-      adjustWin('unmax');
+      rpc.emit('unmax', null);
       state.maxed = false;
     } else {
-      adjustWin('max');
+      rpc.emit('max', null);
       state.maxed = true;
     }
   });
   emitter.on('min', () => {
-    adjustWin('min');
+    rpc.emit('min', null);
   });
   emitter.on('close', () => {
-    adjustWin('close');
+    rpc.emit('close', null);
   });
 }
