@@ -1,9 +1,16 @@
 const { app } = require('electron');
+const fs = require('fs');
 const path = require('path');
 const createWindow = require('./lib/createWindow');
 const Storage = require('./lib/storage');
 
-const imageStorage = new Storage(path.join(__dirname, 'images'));
+const imagePath = path.join(__dirname, 'images');
+// make sure image path exists
+if (!fs.existsSync(imagePath)) {
+  fs.mkdirSync(imagePath);
+}
+
+const imageStorage = new Storage(imagePath);
 
 let win;
 
