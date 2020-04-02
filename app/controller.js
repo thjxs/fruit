@@ -1,28 +1,29 @@
 import Rpc from './utils/rpc';
-export default function(state, emitter) {
+export default function (state, emitter) {
   const rpc = new Rpc(emitter);
   state.fruitData = {
     artist: null,
     common_name: null,
     scientific_name: null,
     year: null,
-    imgUrl: null
+    imgUrl: null,
   };
   state.current = 0;
   state.loading = true;
   function render() {
     emitter.emit('render');
   }
-  rpc.on('cached', data => {
+  rpc.on('cached', (data) => {
     state.fruitData = data.fruitData;
     state.loading = false;
     setTimeout(() => {
       let el = document.getElementById('fruit-img');
       el.classList.add('opacity-100');
+      el.classList.add('fade-in');
     }, 100);
     render();
   });
-  emitter.on('loadImg', current => {
+  emitter.on('loadImg', (current) => {
     state.current = current;
     state.loading = true;
     rpc.emit('loadImg', current);

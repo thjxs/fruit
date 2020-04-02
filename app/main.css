@@ -16,6 +16,8 @@ button:focus {
 .fruit-img {
   min-height: 400px;
   width: 268px;
+}
+.fade-in {
   transition: opacity .3s ease;
 }
 
