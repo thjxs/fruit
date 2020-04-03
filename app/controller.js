@@ -14,18 +14,22 @@ export default function (state, emitter) {
     emitter.emit('render');
   }
   rpc.on('cached', (data) => {
-    state.fruitData = data.fruitData;
-    state.loading = false;
-    setTimeout(() => {
-      let el = document.getElementById('fruit-img');
-      el.classList.add('opacity-100');
-      el.classList.add('fade-in');
-    }, 100);
+    if (data.cached) {
+      state.fruitData = data.fruitData;
+      state.loading = false;
+      setTimeout(() => {
+        let el = document.getElementById('fruit-img');
+        el.classList.add('opacity-100');
+        el.classList.add('fade-in');
+      }, 100);
+    } else {
+      state.loading = true;
+    }
+
     render();
   });
   emitter.on('loadImg', (current) => {
     state.current = current;
-    state.loading = true;
     rpc.emit('loadImg', current);
     render();
   });
