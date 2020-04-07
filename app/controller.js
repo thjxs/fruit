@@ -21,6 +21,7 @@ export default function (state, emitter) {
         let el = document.getElementById('fruit-img');
         el.classList.add('opacity-100');
         el.classList.add('fade-in');
+        el.style.transform = 'scale(1)';
       }, 100);
     } else {
       state.loading = true;
