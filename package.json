@@ -21,6 +21,9 @@
     "*.js": [
       "prettier --write --single-quote",
       "jshint"
+    ],
+    "*.css": [
+      "prettier --write"
     ]
   },
   "devDependencies": {
