@@ -5,6 +5,7 @@
   "author": "thjxs <tanhongjianx@163.com>",
   "scripts": {
     "clean": "rimraf dist/",
+    "cleanImg": "node script/clear",
     "build": "npm run clean && cross-env NODE_ENV=production webpack --mode=production ",
     "wstart": "webpack-dev-server",
     "start": "electron ."
