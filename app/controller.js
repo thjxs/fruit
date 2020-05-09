@@ -13,6 +13,15 @@ export default function (state, emitter) {
   function render() {
     emitter.emit('render');
   }
+  function keyPressed(code) {
+    if (code === 39 || code === 37) {
+      const i = code === 39 ? 1 : -1;
+      if (i === -1 && state.current === 0) {
+        return;
+      }
+      emitter.emit('loadImg', state.current + i);
+    }
+  }
   rpc.on('cached', (data) => {
     if (data.cached) {
       state.fruitData = data.fruitData;
@@ -38,6 +47,9 @@ export default function (state, emitter) {
     rpc.emit('loadImg', state.current);
   });
   emitter.on('DOMContentLoaded', () => {
+    document.addEventListener('keyup', function (e) {
+      keyPressed(e.keyCode);
+    });
     // rpc.emit('loadImg', state.current)
   });
   emitter.on('max', () => {
