@@ -27,10 +27,10 @@ export default function fruit(state, loading) {
         class="fruit-img opacity-0 mx-auto"
         src="/images/${state.hash}"
       />
-      <h2 class="text-white">Artist: ${state.artist}</h2>
-      <p class="text-white">year: ${state.year}</p>
-      <p class="text-white">Scientific name: ${state.scientific_name}</p>
-      <p class="text-white">Common name: ${state.common_name}</p>
+      <h2 class="fruit-text">Artist: ${state.artist}</h2>
+      <p class="fruit-text">year: ${state.year}</p>
+      <p class="fruit-text">Scientific name: ${state.scientific_name}</p>
+      <p class="fruit-text">Common name: ${state.common_name}</p>
     </div>
   `;
 }

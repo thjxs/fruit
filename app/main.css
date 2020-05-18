@@ -4,11 +4,27 @@ button:focus {
 }
 @tailwind components;
 @tailwind utilities;
+body {
+  background-color: rgb(255, 255, 255);
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  .fruit-text {
+    @apply text-white;
+  }
+}
 .main-header {
   padding: 3px;
-  background-color: rgb(68, 58, 58);
+  background-color: rgb(221, 221, 221);
   -webkit-user-select: none;
   -webkit-app-region: drag;
+}
+@media (prefers-color-scheme: dark) {
+  .main-header {
+    background-color: rgb(68, 58, 58);
+  }
 }
 .tool-bar {
   -webkit-app-region: no-drag;

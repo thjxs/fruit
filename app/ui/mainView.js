@@ -14,20 +14,32 @@ export default function mainView(state, emit) {
 
   return html`
     <div class="flex flex-1 items-center">
-      ${Furit(state.fruitData, state.loading)}
-    </div>
-    <div class="flex justify-center">
       <button
-        class="bg-gray-300 hover:bg-gray-400 m-2 px-2 rounded"
+        class="bg-gray-300 hover:bg-gray-400 py-4 m-2 px-2 rounded"
         onclick="${prev}"
       >
-        prev
+        <svg
+          class="h-8 w-8 transform rotate-180"
+          focusable="false"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M5.88 4.12L13.76 12l-7.88 7.88L8 22l10-10L8 2z" />
+        </svg>
       </button>
+      ${Furit(state.fruitData, state.loading)}
       <button
-        class="bg-gray-300 hover:bg-gray-400 m-2 px-2 rounded"
+        class="bg-gray-300 hover:bg-gray-400 py-4 m-2 px-2 rounded"
         onclick="${next}"
       >
-        next
+        <svg
+          class="h-8 w-8"
+          focusable="false"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M5.88 4.12L13.76 12l-7.88 7.88L8 22l10-10L8 2z" />
+        </svg>
       </button>
     </div>
   `;
