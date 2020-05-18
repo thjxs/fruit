@@ -32,6 +32,7 @@ class Header extends Component {
           width="24"
           height="24"
           id="header-logo"
+          class="m-1"
         >
           <!-- head -->
           <path d="M11,0 v2 h2 v-1 h-1 v-1 h-1" fill="red" />
@@ -101,10 +102,10 @@ class Header extends Component {
             onclick="${() => {
               this.min();
             }}"
-            class="px-1"
+            class="px-1 hover:bg-gray-300 text-gray-400"
           >
             <svg
-              class="fill-current text-gray-500 hover:bg-red-100"
+              class="fill-current"
               width="24"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -116,10 +117,10 @@ class Header extends Component {
             onclick="${() => {
               this.max();
             }}"
-            class="px-1"
+            class="px-1 hover:bg-gray-300 text-gray-400"
           >
             <svg
-              class="fill-current text-gray-500 hover:bg-red-100"
+              class="fill-current"
               width="24"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -133,10 +134,10 @@ class Header extends Component {
             onclick="${() => {
               this.close();
             }}"
-            class="px-1"
+            class="px-1 hover:bg-red-200 hover:text-white text-gray-500"
           >
             <svg
-              class="fill-current text-gray-500 hover:bg-red-700 hover:text-white"
+              class="fill-current"
               width="24"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"

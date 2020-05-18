@@ -16,8 +16,7 @@ body {
   }
 }
 .main-header {
-  padding: 3px;
-  background-color: rgb(221, 221, 221);
+  background-color: #f5f5f5;
   -webkit-user-select: none;
   -webkit-app-region: drag;
 }
