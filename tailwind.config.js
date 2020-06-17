@@ -26,7 +26,7 @@ const colors = {
   },
 };
 
-module.exports = {
+const config = {
   theme: {
     colors: colors,
     backgroundColor: colors,
@@ -50,3 +50,9 @@ module.exports = {
     },
   },
 };
+
+if (process.env.NODE_ENV === 'production') {
+  config.purge = ['./app/ui/*.js', './app/*.js'];
+}
+
+module.exports = config;
