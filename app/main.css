@@ -34,6 +34,9 @@ body {
   transform: scale(0.9);
   user-select: none;
 }
+.fruit-container {
+  min-width: 520px;
+}
 .fade-in {
   transition: all 0.2s ease;
 }
@@ -41,7 +44,7 @@ body {
 .loader {
   position: relative;
   margin: 0 auto;
-  width: 268px;
+  width: 64px;
 }
 .loader:before {
   content: "";
