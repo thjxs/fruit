@@ -34,7 +34,7 @@
     "cross-env": "^7.0.2",
     "css-loader": "^4.2",
     "cssnano": "^4.1.10",
-    "electron": "^9.1",
+    "electron": "^9.3",
     "html-webpack-plugin": "^4.0.0",
     "husky": "^4.2.3",
     "jshint": "^2.11.0",
